@@ -193,10 +193,9 @@ const config = {
     return config;
   },
   async headers() {
-
-    headers.push(
+    return [
       {
-        // matching all API routes
+        // mathching all API routes
         source: "/api/:path*",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
@@ -205,9 +204,7 @@ const config = {
           { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
         ]
       }
-    );
-
-    return headers;
+    ];
   },
   async rewrites() {
     return [
